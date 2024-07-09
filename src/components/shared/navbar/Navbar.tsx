@@ -153,6 +153,10 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
+      <div
+                className={`fixed inset-0 ${nav ? 'block' : 'hidden'} md:hidden`}
+                onClick={handleNav}
+            ></div>
     </div>
   );
 };

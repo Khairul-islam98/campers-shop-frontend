@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
 
   const handleNav = () => {
     setNav(!nav);
@@ -14,7 +15,7 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Products", path: "/products" },
     { name: "Product Management", path: "/product-management" },
-    { name: "About Us ", path: "/about-us" },
+    { name: "About Us", path: "/about-us" },
   ];
 
   const navItemsSec = [
@@ -33,11 +34,7 @@ const Navbar = () => {
   return (
     <div className="bg-black w-full flex justify-between items-center h-24 mx-auto px-4 text-white">
       <Link to="/" className="flex items-center gap-2">
-        <img
-          className="max-w-9 lg:max-w-14"
-          src={logo}
-          alt="mountain-image"
-        />
+        <img className="max-w-9 lg:max-w-14 bg-white rounded-full" src={logo} alt="logo" />
         <h2 className="font-bold text-lg md:text-xl lg:text-3xl text-gray-200">
           Campers <span className="text-gray-400">Shop</span>
         </h2>
@@ -62,7 +59,7 @@ const Navbar = () => {
 
       <ul className="hidden md:flex justify-end">
         {navItemsSec.map((item) => (
-          <li key={item.name} className="p-4  flex items-center gap-1 flex-wrap">
+          <li key={item.name} className="p-4 flex items-center gap-1 flex-wrap">
             <NavLink
               to={item.path}
               className={({ isActive }) =>
@@ -88,6 +85,11 @@ const Navbar = () => {
                   d={item.icon}
                 />
               </svg>
+              {item.name === "Cart" && (
+                <span className="mb-3 size-4  bg-white text-black rounded-full text-center text-xs">
+                  {cartCount}
+                </span>
+              )}
             </NavLink>
           </li>
         ))}
@@ -104,7 +106,7 @@ const Navbar = () => {
             : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
         }
       >
-        <h1 className="w-full text-3xl font-bold  m-4"></h1>
+        <h1 className="w-full text-3xl font-bold m-4"></h1>
         {navItems.map((item) => (
           <li key={item.name} className="p-4 border-b border-gray-600">
             <NavLink
@@ -121,9 +123,8 @@ const Navbar = () => {
           </li>
         ))}
         {navItemsSec.map((item) => (
-          <li className="p-4 border-b">
+          <li key={item.name} className="p-4 border-b border-gray-600">
             <NavLink
-              key={item.name}
               to={item.path}
               className={({ isActive }) =>
                 isActive
@@ -148,15 +149,20 @@ const Navbar = () => {
                     d={item.icon}
                   />
                 </svg>
+                {item.name === "Cart" && (
+                  <span className="mb-3 size-4 bg-white text-black rounded-full text-center text-xs">
+                    {cartCount}
+                  </span>
+                )}
               </div>
             </NavLink>
           </li>
         ))}
       </ul>
       <div
-                className={`fixed inset-0 ${nav ? 'block' : 'hidden'} md:hidden`}
-                onClick={handleNav}
-            ></div>
+        className={`fixed inset-0 ${nav ? 'block' : 'hidden'} md:hidden`}
+        onClick={handleNav}
+      ></div>
     </div>
   );
 };

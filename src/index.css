@@ -74,3 +74,16 @@
       @apply bg-background text-foreground;
     }
   }
+
+  .image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .magnifier {
+    transition: transform 0.3s ease;
+  }
+  
+  .magnifier:hover {
+    transform: scale(1.5);
+  }

@@ -49,7 +49,7 @@ const Footer = () => {
                   {typeof item === 'string' ? (
                     item
                   ) : item.type === 'image' ? (
-                    <img src={logo} alt={item.alt} className="max-w-9 bg-white rounded-full lg:max-w-14" />
+                    <img src={logo} alt={item.alt} className="max-w-9 bg-white rounded-full  lg:max-w-14" />
                   ) : null}
                 </li>
               ))}
@@ -68,7 +68,7 @@ const Footer = () => {
               type="email"
               placeholder="Enter email.."
             />
-            <Button className="p-2 mb-4 cursor-pointer bg-black text-white">Subscribe</Button>
+            <Button className="p-2 mb-4 cursor-pointer bg-black text-white">Subscribe </Button>
           </form>
         </div>
       </div>

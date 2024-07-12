@@ -2,10 +2,14 @@ import  { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
+import { useAppSelector } from "@/redux/hook";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const [cartCount, setCartCount] = useState(0);
+
+  const cart = useAppSelector(state => state.cart.length);
+  
+
 
   const handleNav = () => {
     setNav(!nav);
@@ -87,7 +91,7 @@ const Navbar = () => {
               </svg>
               {item.name === "Cart" && (
                 <span className="mb-3 size-4  bg-white text-black rounded-full text-center text-xs">
-                  {cartCount}
+                  {cart}
                 </span>
               )}
             </NavLink>
@@ -151,7 +155,7 @@ const Navbar = () => {
                 </svg>
                 {item.name === "Cart" && (
                   <span className="mb-3 size-4 bg-white text-black rounded-full text-center text-xs">
-                    {cartCount}
+                    {cart}
                   </span>
                 )}
               </div>
@@ -159,10 +163,10 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      <div
+      {/* <div
         className={`fixed inset-0 ${nav ? 'block' : 'hidden'} md:hidden`}
         onClick={handleNav}
-      ></div>
+      ></div> */}
     </div>
   );
 };

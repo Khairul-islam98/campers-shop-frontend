@@ -166,16 +166,16 @@ const Checkout = () => {
             <div>
               <div className="flex gap-2">
                 <img
-                  className="object-cover rounded-md w-20 h-20"
+                  className="object-cover rounded-md w-20 h-20 border-[#CB1836]"
                   src={item.image}
                   alt={item.name}
                 />
                 <p className="text-center flex items-center font-semibold hover:text-[#CB1836]">
-                  {item.name}
+                  {item.name.slice(0, 25)}...
                 </p>
               </div>
             </div>
-            <div>$ {item.price}</div>
+            <div className="text-[#CB1836]">Price: ${item.price}</div>
           </div>
         ))}
         <div className="flex justify-between font-bold text-lg">

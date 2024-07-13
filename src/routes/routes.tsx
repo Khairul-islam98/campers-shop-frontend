@@ -1,3 +1,4 @@
+import ErrorPage from "@/components/shared/ErrorPage";
 import AboutUs from "@/pages/about us/AboutUs";
 import Cart from "@/pages/cart/Cart";
 import Checkout from "@/pages/checkout/Checkout";
@@ -14,6 +15,7 @@ const router: ReturnType<typeof createBrowserRouter>  = createBrowserRouter([
     {
         path: "/",
         element: <App />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",

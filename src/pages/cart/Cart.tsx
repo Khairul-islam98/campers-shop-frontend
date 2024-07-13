@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Loader from "@/components/shared/Loader";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,7 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { decreaseQuantity, increaseQuantity, removeFromCart } from "@/redux/features/cart/cart.slice";
+import { decreaseQuantity,  increaseQuantity,  IProduct,  removeFromCart } from "@/redux/features/cart/cart.slice";
 import { useGetAllProductQuery } from "@/redux/features/product/productApi";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { useNavigate } from "react-router-dom";
@@ -16,11 +17,10 @@ import { toast } from "sonner";
 import Swal from "sweetalert2";
 
 const Cart = () => {
-  const { data, isLoading } = useGetAllProductQuery([]);
   const navigate = useNavigate();
-
+  
   const cart = useAppSelector((state) => state.cart);
-  console.log(cart);
+  const { data, isLoading } = useGetAllProductQuery({});
   const dispatch = useAppDispatch();
 
   const totalPrice = cart.reduce(
@@ -28,10 +28,7 @@ const Cart = () => {
     0
   );
 
-  const isDisabled = (item: any) => {
-    const result = data?.data?.find((data: any) => data._id === item._id);
-    return result?.quantity === item.quantity || result?.stock === false;
-  };
+
 
   const handleDeleteItem = (id: string) => {
     Swal.fire({
@@ -54,13 +51,12 @@ const Cart = () => {
     });
   };
 
+
+
+
   const handleIncreaseQuantity = (id: string) => {
     const product = cart.find(item => item._id === id);
-    const result = data?.data?.find((item: any) => item._id === id);
-
-    
-
-   
+    const result = data?.data?.find((data: IProduct) => data._id === id); 
     if (product && product.quantity < result.stock) {
       dispatch(increaseQuantity(id));
     } else {
@@ -68,9 +64,14 @@ const Cart = () => {
     }
   };
 
+
+
+
   const handleDecreaseQuantity = (id: string) => {
     dispatch(decreaseQuantity(id));
   };
+
+
 
   if (isLoading) {
     return <Loader />
@@ -155,7 +156,7 @@ const Cart = () => {
                           </span>
                           <Button
                             onClick={() => handleIncreaseQuantity(item._id)}
-                            disabled={isDisabled(item)}
+                            
                             variant="ghost"
                             className="border border-gray-300 p-1"
                           >

@@ -12,7 +12,7 @@ interface IProduct {
   image: string;
 }
 const BestSelling = () => {
-    const {data, isLoading} =  useGetAllProductQuery([])
+    const {data, isLoading} =  useGetAllProductQuery({})
     if (isLoading) return <Loader />
     return (
         <div className="max-w-screen-xl mx-auto mt-16 p-4 md:p-0">

@@ -11,7 +11,7 @@ const Success = () => {
     }
   return (
     <div>
-    <div className="bg-white border p-8 rounded-lg shadow-lg text-center">
+    <div className="bg-white border flex mx-auto flex-col mt-10 items-center justify-center p-8 rounded-lg shadow-lg text-center mb-20 md:w-96">
       <h1 className="text-3xl font-bold text-black mb-4 hover:text-[#CB1836]">Order Confirmed!</h1>
       <p className="text-lg text-gray-700 mb-6 hover:text-[#CB1836]">Thank you for your order.</p>
       <div className="flex justify-center">

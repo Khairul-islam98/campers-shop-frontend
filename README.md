@@ -1,4 +1,4 @@
-# Campers Shop Frontedn
+# Campers Shop Frontend
 
 This project is a sample implementation of a Campers Shop service application using Typescript, React, Redux, Node.js, Express, and MongoDB.
 

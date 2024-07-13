@@ -15,7 +15,7 @@ const Checkout = () => {
   const [createPayment] = useCreateOrderMutation();
   const cart = useAppSelector((state) => state.cart);
   const { register, handleSubmit, reset } = useForm();
-  const [payment, setPayment] = useState("");
+  const [payment, setPayment] = useState("cash");
   const location = useLocation();
   const totalPrice = location.state?.totalPrice || 0;
   const [updateproduct] = useUpdateproductMutation();
@@ -33,7 +33,6 @@ const Checkout = () => {
       productId: cart[0]._id,
     
     };
-    console.log(totalPrice);
     try {
       const result = await createPayment(orderData).unwrap();
       console.log(result);
@@ -133,10 +132,11 @@ const Checkout = () => {
           <Label>Payment Method</Label>
           <RadioGroup
             className="mt-4"
+            defaultValue="cash"
             onValueChange={(value) => setPayment(value)}
           >
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="cash" />
+              <RadioGroupItem  value="cash" />
               <Label htmlFor="cash">Cash on Delivery</Label>
             </div>
             <div className="flex items-center space-x-2">
@@ -147,7 +147,7 @@ const Checkout = () => {
         </div>
         <div className="text-center">
           {payment === "cash" ? (
-            <Button type="submit" className="mt-10 px-20 bg-[#CB1836] text-white hover:bg-gray-600">
+            <Button  type="submit" className="mt-10 px-20 bg-[#CB1836] text-white hover:bg-gray-600">
               Place Order
             </Button>
           ) : (

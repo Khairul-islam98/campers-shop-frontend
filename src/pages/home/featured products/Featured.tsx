@@ -11,7 +11,8 @@ interface Product {
 }
 
 const Featured = () => {
-  const { data } = useGetAllProductQuery([]);
+
+  const { data } = useGetAllProductQuery({});
 
   return (
     <div className="max-w-screen-xl mx-auto mt-16 p-4">

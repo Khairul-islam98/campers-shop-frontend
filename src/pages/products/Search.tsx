@@ -109,7 +109,7 @@ const Search: React.FC<SearchProps> = ({ setQueryParams, queryParams }) => {
                       151-350
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value="351+">
-                      351
+                      351+
                     </DropdownMenuRadioItem>
                   </DropdownMenuRadioGroup>
                 </DropdownMenuSubContent>

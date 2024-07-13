@@ -26,8 +26,9 @@ interface IProduct {
 }
 
 const ProductManagement = () => {
-  const { data, isLoading } = useGetAllProductQuery([]);
   const [deleteProduct] = useDeleteproductMutation();
+  const { data, isLoading } = useGetAllProductQuery({});
+
 
   const handleDelete = async (id: string) => {
     const result = await Swal.fire({

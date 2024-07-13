@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -14,7 +14,19 @@ import {
 import { Input } from "@/components/ui/input";
 import { useForm, FieldValues } from "react-hook-form";
 
-const Search = ({ setQueryParams, queryParams }) => {
+interface QueryParams {
+  search?: string;
+  price?: string;
+  category?: string;
+  sort?: string;
+}
+
+interface SearchProps {
+  setQueryParams: (params: QueryParams) => void;
+  queryParams: QueryParams;
+}
+
+const Search: React.FC<SearchProps> = ({ setQueryParams, queryParams }) => {
   const { register, handleSubmit } = useForm();
   const [price, setPrice] = useState("");
   const [sort, setSort] = useState("price:asc");
@@ -27,10 +39,10 @@ const Search = ({ setQueryParams, queryParams }) => {
   const handleClear = () => {
     setPrice("");
     setSort("");
-    setQueryParams([]);
+    setQueryParams({});
   };
 
-  const handleFilterChange = (filterKey, value) => {
+  const handleFilterChange = (filterKey: string, value: string) => {
     setQueryParams({ ...queryParams, [filterKey]: value });
   };
 
@@ -49,10 +61,10 @@ const Search = ({ setQueryParams, queryParams }) => {
         <Input
           className="focus-visible:ring-offset-0 rounded-r-none bg-gray-100"
           type="text"
-          placeholder="Search here..."
+          placeholder="Search..."
           {...register("search")}
         />
-        <Button type="submit">
+        <Button type="submit" className="bg-[#CB1836] hover:bg-gray-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -72,7 +84,7 @@ const Search = ({ setQueryParams, queryParams }) => {
       <div className="flex items-center justify-between gap-4">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="border-blue-500 font-inter">
+            <Button variant="outline" className="border-gray-500 font-semibold">
               Filter
             </Button>
           </DropdownMenuTrigger>
@@ -91,13 +103,13 @@ const Search = ({ setQueryParams, queryParams }) => {
                     }}
                   >
                     <DropdownMenuRadioItem value="0-150">
-                      0-100
+                      0-150
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value="151-350">
-                      101-150
+                      151-350
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value="351+">
-                      151+
+                      351
                     </DropdownMenuRadioItem>
                   </DropdownMenuRadioGroup>
                 </DropdownMenuSubContent>
@@ -119,10 +131,10 @@ const Search = ({ setQueryParams, queryParams }) => {
                       Backpacks
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value="cookware">
-                    Cookware
+                      Cookware
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value="tents">
-                    Tents
+                      Tents
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value="accessories">
                       Accessories
@@ -137,7 +149,7 @@ const Search = ({ setQueryParams, queryParams }) => {
         <Button
           variant="outline"
           onClick={handleClear}
-          className=""
+          className="font-semibold border-gray-500"
         >
           Clear
         </Button>
@@ -146,9 +158,9 @@ const Search = ({ setQueryParams, queryParams }) => {
         <Button
           variant="outline"
           onClick={toggleSort}
-          className=""
+          className="font-semibold border-gray-500"
         >
-          Sort: {sort === "price:asc" ? "High to Low" : "Low to High"}
+          Sort: {sort === "price:asc" ? "Low to High" : "High to Low"}
         </Button>
       </div>
     </div>

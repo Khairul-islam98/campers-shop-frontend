@@ -46,13 +46,14 @@ const Team = () => {
   ];
   return (
     <section className="py-12">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl font-bold text text-center py-3 ">Our Team Member</h2>
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+      <h2 className="text-2xl font-bold text text-center py-3 hover:text-[#CB1836] ">Our Team Member</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {teamMembers.map((member) => (
             <div
               key={member.id}
               className="bg-white rounded-lg shadow-md overflow-hidden"
+              data-aos="fade-up"
             >
               <div className='image-container'>
               <img
@@ -62,8 +63,8 @@ const Team = () => {
               />
               </div>
               <div className="p-6">
-                <h2 className="text-xl font-bold mb-2">{member.name}</h2>
-                <p className="text-gray-700 mb-4">{member.role}</p>
+                <h2 className="text-xl font-semibold mb-2 hover:text-[#CB1836]">{member.name}</h2>
+                <p className="text-gray-700 mb-4 hover:text-[#CB1836]">{member.role}</p>
               </div>
             </div>
           ))}

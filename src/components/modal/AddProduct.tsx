@@ -46,7 +46,6 @@ const AddProduct = () => {
     };
     try{
         const res = await addproduct(productData).unwrap()
-        console.log(res);
         if(res.success){
          toast.success(res?.message, { id: toastId, duration: 2000 }); 
          setOpen(false);
@@ -59,7 +58,7 @@ const AddProduct = () => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button onClick={() => setOpen(true)} className="bg-black mb-2 hover:bg-gray-600">
+        <Button onClick={() => setOpen(true)} className="mb-2 bg-[#CB1836] text-white hover:bg-gray-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -79,7 +78,7 @@ const AddProduct = () => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] max-h-screen overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Add Product</DialogTitle>
+          <DialogTitle className=" hover:text-[#CB1836] font-semibold">Add Product</DialogTitle>
           <DialogDescription>
             Make changes to your product here.
           </DialogDescription>
@@ -142,7 +141,7 @@ const AddProduct = () => {
             <Input {...register("stock")} id="stock" type="number" className="col-span-3" />
           </div>
           <DialogFooter>
-            <Button type="submit">Add Product</Button>
+            <Button type="submit" className="bg-[#CB1836] text-white hover:bg-gray-600">Add Product</Button>
           </DialogFooter>
         </form>
       </DialogContent>

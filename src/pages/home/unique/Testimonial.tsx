@@ -62,10 +62,10 @@ const Testimonial = () => {
     <section className="w-full py-4">
       <div className="mx-auto lg:max-w-screen-xl px-3">
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <p className="font-semibold text-sm md:text-lg">
+          <p className="font-bold text-gray-800 text-2xl">
             TESTIMONIALS
           </p>
-          <p className="text-gray-600">
+          <p className="text-gray-500">
             We let our work speak for itself. Here are some of the testimonials
             from our clients.
           </p>
@@ -92,7 +92,7 @@ const Testimonial = () => {
                           />
                         </span>
                         <div>
-                          <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                          <p className="text-sm font-semibold text-gray-800 dark:text-white">
                             {testimonial.name}
                           </p>
                         </div>
@@ -103,8 +103,8 @@ const Testimonial = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black text-white  p-2 rounded-full cursor-pointer  transition-opacity duration-300" />
-          <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black text-white  p-2 rounded-full cursor-pointer  transition-opacity duration-300" />
+          <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[#CB1836] text-white  p-2 rounded-full cursor-pointer  transition-opacity duration-300" />
+          <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#CB1836] text-white  p-2 rounded-full cursor-pointer  transition-opacity duration-300" />
         </Carousel>
       </div>
     </section>

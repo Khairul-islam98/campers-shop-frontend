@@ -6,6 +6,7 @@ import ProductDetails from "@/pages/product details/ProductDetails";
 import ProductManagement from "@/pages/product management/ProductManagement";
 import Products from "@/pages/products/Products";
 import Success from "@/pages/success/Success";
+import Wishlist from "@/pages/wishlist/Wishlist";
 import { createBrowserRouter } from "react-router-dom";
 import App from "src/App";
 
@@ -37,6 +38,10 @@ const router: ReturnType<typeof createBrowserRouter>  = createBrowserRouter([
             {
                 path: "/cart",
                 element: <Cart />
+            },
+            {
+                path: "/wishlist",
+                element: <Wishlist />
             },
             {
                 path: "/checkout",

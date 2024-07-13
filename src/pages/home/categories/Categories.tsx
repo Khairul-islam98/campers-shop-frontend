@@ -21,11 +21,11 @@ const Categories = () => {
 
   return (
     <div className="mt-24 max-w-screen-xl mx-auto mb-5">
-        <h2 className="text-2xl font-semibold  text-gray-800 mb-6">Product Categories</h2>
+        <h2 className="text-2xl font-bold  text-gray-800 mb-6">Product Categories</h2>
       <div className="grid grid-cols-1 p-4 md:p-0 md:grid-cols-3 gap-2">
         {categories.map((category) => (
           <div>
-            <Card key={category.id} className="">
+            <Card key={category.id} className="" data-aos="fade-up">
               <CardContent className="pt-5">
               <div className="image-container">
             <img className="rounded-md magnifier h-64 w-full" src={category.icon} alt="" />
@@ -33,7 +33,7 @@ const Categories = () => {
               </CardContent>
               <div>
                 <CardHeader>
-                  <CardTitle className="text-xl">
+                  <CardTitle className="text-xl hover:text-[#CB1836]">
                     {" "}
                     {category.name}{" "}
                   </CardTitle>

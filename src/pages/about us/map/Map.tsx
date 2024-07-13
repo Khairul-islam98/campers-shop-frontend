@@ -1,10 +1,9 @@
-import React from "react";
 
 const Map = () => {
   return (
     <section className="flex items-center justify-center py-4">
       <div className="max-w-screen-lg w-full bg-white rounded-lg shadow-md overflow-hidden">
-        <h2 className="text-3xl font-semibold text-center py-4">
+        <h2 className="text-2xl font-bold text-center py-4 hover:text-[#CB1836]">
           Our Location
         </h2>
         <div className="h-96">
@@ -14,7 +13,6 @@ const Map = () => {
             height="100%"
             frameBorder="0"
             style={{ border: 0 }}
-            allowFullScreen=""
             loading="lazy"
           ></iframe>
         </div>

@@ -4,7 +4,7 @@ const Social = () => {
     return (
         <section className="py-8">
         <div className="max-w-screen-lg mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-4">Follow Us</h2>
+          <h2 className="text-2xl font-bold mb-4 hover:text-[#CB1836]">Follow Us</h2>
           <p className="text-gray-700 mb-6">Stay connected with us on social media</p>
           <div className="flex justify-center space-x-6">
             <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Facebook">

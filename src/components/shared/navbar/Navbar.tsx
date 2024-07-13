@@ -36,11 +36,11 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="bg-black w-full flex justify-between items-center h-24 mx-auto px-4 text-white">
+    <div className="bg-[#FFFFFF] w-full flex z-10 justify-between items-center h-24 mx-auto px-4">
       <Link to="/" className="flex items-center gap-2">
         <img className="max-w-9 lg:max-w-14 bg-white rounded-full" src={logo} alt="logo" />
-        <h2 className="font-bold text-lg md:text-xl lg:text-3xl text-gray-200">
-          Campers <span className="text-gray-400">Shop</span>
+        <h2 className="font-bold text-lg md:text-xl lg:text-3xl text-gray-700">
+          Campers <span className="text-[#CB1836]">Shop</span>
         </h2>
       </Link>
 
@@ -51,8 +51,8 @@ const Navbar = () => {
               to={item.path}
               className={({ isActive }) =>
                 isActive
-                  ? "text-white underline"
-                  : "text-gray-100 hover:text-orange-500"
+                  ? "text-[#CB1836] underline"
+                  : "text-gray-800 hover:text-[#CB1836]"
               }
             >
               {item.name}
@@ -69,8 +69,8 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `font-medium flex items-center ${
                   isActive
-                    ? "text-orange-500"
-                    : "text-gray-100 hover:text-orange-500"
+                    ? "text-[#CB1836]"
+                    : "text-gray-800 hover:text-[#CB1836]"
                 }`
               }
             >
@@ -90,7 +90,7 @@ const Navbar = () => {
                 />
               </svg>
               {item.name === "Cart" && (
-                <span className="mb-3 size-4  bg-white text-black rounded-full text-center text-xs">
+                <span className="mb-3 size-4  bg-[#CB1836] text-white rounded-full text-center text-xs">
                   {cart}
                 </span>
               )}
@@ -106,19 +106,19 @@ const Navbar = () => {
       <ul
         className={
           nav
-            ? "fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500"
+            ? "fixed z-10 md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#FFFFFF] ease-in-out duration-500"
             : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
         }
       >
         <h1 className="w-full text-3xl font-bold m-4"></h1>
         {navItems.map((item) => (
-          <li key={item.name} className="p-4 border-b border-gray-600">
+          <li key={item.name} className="p-4 border-b border-gray-800">
             <NavLink
               to={item.path}
               className={({ isActive }) =>
                 isActive
-                  ? "text-white underline"
-                  : "text-gray-100 hover:text-orange-500"
+                  ? "text-[#CB1836] underline"
+                  : "text-gray-800 hover:text-[#CB1836]"
               }
               onClick={handleNav}
             >
@@ -127,13 +127,13 @@ const Navbar = () => {
           </li>
         ))}
         {navItemsSec.map((item) => (
-          <li key={item.name} className="p-4 border-b border-gray-600">
+          <li key={item.name} className="p-4 border-b border-gray-800">
             <NavLink
               to={item.path}
               className={({ isActive }) =>
                 isActive
-                  ? "text-white underline"
-                  : "text-gray-100 hover:text-orange-500"
+                  ? "text-[#CB1836] underline"
+                  : "text-gray-800 hover:text-[#CB1836]"
               }
               onClick={handleNav}
             >
@@ -154,7 +154,7 @@ const Navbar = () => {
                   />
                 </svg>
                 {item.name === "Cart" && (
-                  <span className="mb-3 size-4 bg-white text-black rounded-full text-center text-xs">
+                  <span className="mb-3 size-4 bg-[#CB1836] text-white rounded-full text-center text-xs">
                     {cart}
                   </span>
                 )}
@@ -163,10 +163,6 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      {/* <div
-        className={`fixed inset-0 ${nav ? 'block' : 'hidden'} md:hidden`}
-        onClick={handleNav}
-      ></div> */}
     </div>
   );
 };

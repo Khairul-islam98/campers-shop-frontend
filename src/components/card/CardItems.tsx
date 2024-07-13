@@ -14,26 +14,25 @@ const CardItems = ({ product }: { product: IProduct }) => {
   return (
     <div className="lg:max-w-80 h-full rounded-lg border border-gray-200 p-4 flex flex-col gap-4">
       <div className="image-container">
-        <img className="rounded-md magnifier h-96" src={product?.image} alt="" />
+        <img className="rounded-md magnifier w-full h-48 " src={product?.image} alt="" />
       </div>
       <div className="flex flex-col gap-5">
         <div className="space-y-1">
-          <h3 className="text-xl font-bold text-gray-700 ">{product?.name}</h3>
+          <h3 className="text-xl font-semibold text-gray-700 hover:text-[#CB1836] ">{product?.name}</h3>
 
           <div className="flex justify-between items-center">
-            <h3 className=" font-semibold text-gray-500">
-              $ {product?.price} USD
+            <h3 className=" font-semibold text-[#CB1836]">
+              $ {product?.price} 
             </h3>
-            <p className="text-sm text-gray-500 font-medium flex items-center gap-1">
+            <p className="text-sm text-gray-600 hover:text-[#CB1836]  flex items-center gap-1">
               
              Category: {product?.category}
             </p>
           </div>
-            <p>{product?.description}</p>
         </div>
 
         <Link to={`/products-details/${product?._id}`}>
-        <Button className="w-full">
+        <Button className="w-full bg-[#CB1836] text-white hover:bg-gray-600">
           See Details
         </Button>
         </Link>
